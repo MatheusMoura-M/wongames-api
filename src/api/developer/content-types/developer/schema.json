@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "developers",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "category",
-    "description": "Organize your content into categories"
+    "singularName": "developer",
+    "pluralName": "developers",
+    "displayName": "developer"
   },
   "options": {
     "draftAndPublish": false
@@ -14,19 +13,17 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "name",
-      "required": false
+      "targetField": "name"
     },
     "games": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::game.game",
-      "mappedBy": "categories"
+      "mappedBy": "developers"
     }
   }
 }

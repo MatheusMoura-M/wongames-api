@@ -1,5 +1,37 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PageButton extends Struct.ComponentSchema {
+  collectionName: 'components_page_buttons';
+  info: {
+    displayName: 'button';
+    icon: 'link';
+  };
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Buy now'>;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageRibon extends Struct.ComponentSchema {
+  collectionName: 'components_page_ribons';
+  info: {
+    displayName: 'ribon';
+    icon: 'priceTag';
+  };
+  attributes: {
+    color: Schema.Attribute.Enumeration<['primary', 'secondary']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    size: Schema.Attribute.Enumeration<['small', 'normal']> &
+      Schema.Attribute.DefaultTo<'normal'>;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +97,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'page.button': PageButton;
+      'page.ribon': PageRibon;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

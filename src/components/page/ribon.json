@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_page_ribons",
+  "info": {
+    "displayName": "ribon",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ],
+      "default": "primary"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "normal"
+      ],
+      "default": "normal"
+    }
+  }
+}

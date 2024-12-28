@@ -17,11 +17,32 @@ export interface PageButton extends Struct.ComponentSchema {
 export interface PageRibbon extends Struct.ComponentSchema {
   collectionName: 'components_page_ribbons';
   info: {
+    description: '';
     displayName: 'ribbon';
     icon: 'priceTag';
   };
   attributes: {
     color: Schema.Attribute.Enumeration<['small', 'normal']> &
+      Schema.Attribute.DefaultTo<'normal'>;
+    size: Schema.Attribute.Enumeration<['small', 'normal']> &
+      Schema.Attribute.DefaultTo<'normal'>;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+  };
+}
+
+export interface PageRibon extends Struct.ComponentSchema {
+  collectionName: 'components_page_ribons';
+  info: {
+    displayName: 'ribon';
+    icon: 'priceTag';
+  };
+  attributes: {
+    color: Schema.Attribute.Enumeration<['primary', 'secondary']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    size: Schema.Attribute.Enumeration<['small', 'normal']> &
       Schema.Attribute.DefaultTo<'normal'>;
     text: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
@@ -97,6 +118,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'page.button': PageButton;
       'page.ribbon': PageRibbon;
+      'page.ribon': PageRibon;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

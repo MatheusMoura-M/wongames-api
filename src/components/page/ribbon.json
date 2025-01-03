@@ -14,10 +14,10 @@
     "color": {
       "type": "enumeration",
       "enum": [
-        "small",
-        "normal"
+        "primary",
+        "secondary"
       ],
-      "default": "normal"
+      "default": "primary"
     },
     "size": {
       "type": "enumeration",
